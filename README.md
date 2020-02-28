@@ -2,13 +2,13 @@
 A method for predicting the affinity of drug-protein based on graph neural network, which is called DGraphDTA (double graph DTA predictor). The method can predict the affinity only using the molecule SMILES and protein sequence. This repo gits from GraphDTA, and compared with GraphDTA, the method constructs both the graph of protein and small molecule at the same time. The protein graph is constructed according to contact map.
 
 ## dependencies
-numpy
-rdkit
-kreas
-Pconsc4
-pytorch
-PyG
-hhsuite
+numpy <br>
+rdkit <br>
+kreas <br>
+Pconsc4 <br>
+pytorch <br>
+PyG <br>
+hhsuite <br>
 
 
 ## train
