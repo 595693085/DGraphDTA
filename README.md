@@ -22,9 +22,9 @@ where the three parameters are dataset selection, gpu selection and fold selecti
 
 ## test
 Mast run after the train step. This step is to reproduce the experiments. <br>
-** python test.py 0 0 0** <br>
+**python test.py 0 0 0** <br>
 and the the three parameters are same to the training.
 
 ## predict
 To predict a affinity from a new drug-protein pair. The input files include the protein msa file in "asm" format, the protein contact map predicted by Pconsc4 and the molecule SMILES. A example is shown in prediction dir. <br>
-** python predict.py ** <br>
+**python predict.py** <br>
