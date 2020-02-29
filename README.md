@@ -9,6 +9,7 @@ pytorch == 1.1.0 <br>
 PyG (torch-geometric) == 1.3.2 <br>
 hhsuite <br>
 rdkit <br>
+ccmpred <br>
 
 ## train
 1. Prepare the data. Get all msa files of the proteins in dataset, and using Pconsc4 to predict all the contact map. A script in the repo can be run to do all the steps: <br>
