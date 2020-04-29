@@ -24,7 +24,7 @@ ccmpred <br>
 ## train 
 Run the training code. <br>
 **python training.py 0 0** <br>
-where the three parameters are dataset selection, gpu selection.
+where the two parameters are dataset selection, gpu selection.
 
 ## test
 Mast run after the train step. This step is to reproduce the experiments. <br>
