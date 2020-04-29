@@ -14,11 +14,11 @@ rdkit <br>
 ccmpred <br>
 
 ## data preparation
-1.Prepare the data need for train. Get all msa files of the proteins in datasets (for more detail description of datasets, please refer to [datasets](https://github.com/hkmztrk/DeepDTA/blob/master/data/README.md)), and using Pconsc4 to predict all the contact map. A script in the repo can be run to do all the steps: <br>
-**python scripts.py** <br>
-2.And if you want to skip the long time preparation, please directly download the contact map and msa files which we already generated from . For more detailed generating information, please refer to the "scripts.py". Then copy the corresponding two folders to each dataset dir. For example:  <br>
-(1) download the data.zip and unzip it.
-(2) copy two folders called "aln" and "pconsc4" from davis to the /data/davis, so do the KIBA.
+1. Prepare the data need for train. Get all msa files of the proteins in datasets (for more detail description of datasets, please refer to [datasets](https://github.com/hkmztrk/DeepDTA/blob/master/data/README.md)), and using Pconsc4 to predict all the contact map. A script in the repo can be run to do all the steps: <br>
+**python scripts.py** <br><br>
+2. And if you want to skip the long time preparation, please directly download the contact map and msa files which we already generated from . For more detailed generating information, please refer to the "scripts.py". Then copy the corresponding two folders to each dataset dir. For example:  <br>
+(1) download the data.zip and unzip it. <br>
+(2) copy two folders called "aln" and "pconsc4" from davis to the /data/davis of your repo, so do the KIBA. <br>
 
 
 ## train 
