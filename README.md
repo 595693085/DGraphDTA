@@ -29,5 +29,5 @@ where the three parameters are dataset selection, gpu selection.
 ## test
 Mast run after the train step. This step is to reproduce the experiments. <br>
 **python test.py 0 0** <br>
-and the the three parameters are same to the training.
+and the parameters are same to the training.
 
