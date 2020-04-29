@@ -1,5 +1,5 @@
 # DGraphDTA
-Inspired by GraphDTA, a method for predicting the affinity of drug-protein based on graph neural network, which is called DGraphDTA (double Graph DTA predictor). The method can predict the affinity only using the molecule SMILES and protein sequence. This repo gits from GraphDTA, and compared with GraphDTA, the method constructs both the graph of protein and small molecule at the same time to improve the accuracy. The protein graph is constructed according to contact map.
+Inspired by GraphDTA, a method for predicting the affinity of drug-protein based on graph neural network is proposed, which is called DGraphDTA (double Graph DTA predictor). The method can predict the affinity only using the molecule SMILES and protein sequence. This repo gits from GraphDTA, and compared with GraphDTA, the method constructs both the graph of protein and small molecule at the same time to improve the accuracy. The protein graph is constructed according to contact map.
 
 <div align=center><img width="900" height="400" src="https://github.com/595693085/DGraphDTA/blob/master/figures/architecture.png"/></div>
 
@@ -13,7 +13,7 @@ hhsuite <br>
 rdkit <br>
 ccmpred <br>
 
-##data preparation
+## data preparation
 1.Prepare the data need for train. Get all msa files of the proteins in datasets (for more detail description of datasets, please refer to [datasets](https://github.com/hkmztrk/DeepDTA/blob/master/data/README.md)), and using Pconsc4 to predict all the contact map. A script in the repo can be run to do all the steps: <br>
 **python scripts.py** <br>
 2.And if you want to skip the long time preparation, please directly download the contact map and msa files which we already generated from . For more detailed generating information, please refer to the "scripts.py". Then copy the corresponding two folders to each dataset dir. For example:  <br>
