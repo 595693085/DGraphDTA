@@ -9,9 +9,10 @@ kreas == 2.3.1 <br>
 Pconsc4 == 0.4 <br>
 pytorch == 1.1.0 <br>
 PyG (torch-geometric) == 1.3.2 <br>
-hhsuite <br>
-rdkit <br>
-ccmpred <br>
+hhsuite (https://github.com/milot-mirdita/hh-suite) <br>
+rdkit == 2019.03.4.0 <br>
+ccmpred (https://github.com/soedinglab/CCMpred) (just using its script)<br>
+open babel == 2.3.2 <br>
 
 ## data preparation
 1. Prepare the data need for train. Get all msa files of the proteins in datasets (for more detail description of datasets, please refer to [datasets](https://github.com/hkmztrk/DeepDTA/blob/master/data/README.md)), and using Pconsc4 to predict all the contact map. A script in the repo can be run to do all the steps: <br>
