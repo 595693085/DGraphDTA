@@ -300,8 +300,8 @@ if __name__ == '__main__':
     real_contact_dir = 'data/validation_data/real_contact'
     pconsc4_contact_dir = 'data/kiba/pconsc4'
     aln_dir = 'data/kiba/aln'
-    train_csv = 'data/kiba_train.csv'
-    test_csv = 'data/kiba_test.csv'
+    train_csv = 'data/kiba_train.csv' # can be obtained after running training.py
+    test_csv = 'data/kiba_test.csv'  # can be obtained after running training.py
 
     if not os.path.exists(real_contact_dir):
         os.makedirs(real_contact_dir)
