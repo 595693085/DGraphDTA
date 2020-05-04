@@ -7,6 +7,7 @@ from collections import OrderedDict
 from rdkit import Chem
 from rdkit.Chem import MolFromSmiles
 import networkx as nx
+
 from utils import *
 
 
@@ -346,12 +347,12 @@ def create_dataset(dataset, fold=0, cross_val_flag=False):
     # entries with protein contact and aln files are marked as effiective
     if cross_val_flag:
         print('fold', fold)
-        print('train_fold:', len(train_folds), 'effective train_fold', valid_train_count)
-        print('valid_fold:', len(valid_fold), 'effective valid_fold', valid_valid_count)
-        print('test_fold:', len(test_fold), 'effective test_fold', valid_test_count)
+        print('train entries:', len(train_folds), 'effective train entries', valid_train_count)
+        print('valid entries:', len(valid_fold), 'effective valid entries', valid_valid_count)
+        print('test entries:', len(test_fold), 'effective test entries', valid_test_count)
     else:
-        print('train_fold:', len(train_folds), 'effective train_fold', valid_train_count)
-        print('test_fold:', len(test_fold), 'effective test_fold', valid_test_count)
+        print('train entries:', len(train_folds), 'effective train entries', valid_train_count)
+        print('test entries:', len(test_fold), 'effective test entries', valid_test_count)
 
     compound_iso_smiles = drugs
     target_key = prot_keys

@@ -4,9 +4,13 @@ import torch
 import numpy as np
 from random import shuffle
 import matplotlib.pyplot as plt
+from torch_geometric.data import Batch
+
 from emetrics import get_aupr, get_cindex, get_rm2, get_ci, get_mse, get_rmse, get_pearson, get_spearman
 from utils import *
 from scipy import stats
+from gnn import GNNNet
+from data_process import create_dataset
 
 
 def predicting(model, device, loader):
@@ -34,7 +38,7 @@ def calculate_metrics(Y, P, dataset='davis'):
     # aupr = get_aupr(Y, P)
     cindex = get_cindex(Y, P)  # DeepDTA
     cindex2 = get_ci(Y, P)  # GraphDTA
-    rm2 = get_rm2(Y, P)
+    rm2 = get_rm2(Y, P)  # DeepDTA
     mse = get_mse(Y, P)
     pearson = get_pearson(Y, P)
     spearman = get_spearman(Y, P)
@@ -83,14 +87,9 @@ def plot_density(Y, P, fold=0, dataset='davis'):
 
 
 if __name__ == '__main__':
-    import torch
-    from gnn import GNNNet
-    from torch_geometric.data import Batch
-    from utils import *
-    from data_process import create_dataset
-
     dataset = ['davis', 'kiba'][int(sys.argv[1])]  # dataset selection
     model_st = GNNNet.__name__
+    print('dataset:', dataset)
 
     cuda_name = ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3'][int(sys.argv[2])]  # gpu selection
     print('cuda_name:', cuda_name)

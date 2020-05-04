@@ -51,8 +51,8 @@ for dataset in datasets:
     best_mse = 1000
     best_test_mse = 1000
     best_epoch = -1
-    model_file_name = 'models/model_' + model_st + '_' + dataset + '_' + '.model'
-    result_file_name = 'results/result_' + model_st + '_' + dataset + '_' + '.txt'
+    model_file_name = 'models/model_' + model_st + '_' + dataset + '.model'
+    result_file_name = 'results/result_' + model_st + '_' + dataset + '.txt'
 
     for epoch in range(NUM_EPOCHS):
         train(model, device, train_loader, optimizer, epoch + 1)
