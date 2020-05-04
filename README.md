@@ -7,11 +7,11 @@ Inspired by GraphDTA, a method for predicting the affinity of drug-protein based
 numpy == 1.17.4 <br>
 kreas == 2.3.1 <br>
 Pconsc4 == 0.4 <br>
-pytorch == 1.1.0 <br>
+pytorch == 1.3.0 <br>
 PyG (torch-geometric) == 1.3.2 <br>
-hhsuite <br>
-rdkit <br>
-ccmpred <br>
+hhsuite (https://github.com/soedinglab/hh-suite)<br>
+rdkit == 2019.03.4.0 <br>
+ccmpred (https://github.com/soedinglab/CCMpred) <br>
 
 ## data preparation
 1. Prepare the data need for train. Get all msa files of the proteins in datasets (for more detail description of datasets, please refer to [datasets](https://github.com/hkmztrk/DeepDTA/blob/master/data/README.md)), and using Pconsc4 to predict all the contact map. A script in the repo can be run to do all the steps: <br>
@@ -24,7 +24,7 @@ ccmpred <br>
 ## train 
 Run the training code. <br>
 **python training.py 0 0** <br>
-where the three parameters are dataset selection, gpu selection.
+where the two parameters are dataset selection, gpu selection.
 
 ## test
 Mast run after the train step. This step is to reproduce the experiments. <br>
