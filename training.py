@@ -73,7 +73,7 @@ for dataset in datasets:
     # model = torch.load(model_file_name)
     G, P = predicting(model, device, test_loader)
     ret = [get_rmse(G, P), get_mse(G, P), get_pearson(G, P), get_spearman(G, P), get_ci(G, P), get_rm2(G, P)]
-    result_str += dataset + 'fold' + str(fold) + '\r\n'
+    result_str += dataset + '\r\n'
     result_str += 'rmse:' + str(ret[0]) + ' mse:' + str(ret[1]) + ' pearson:' + str(ret[2]) + 'spearman:' + str(
         ret[3]) + 'ci:' + str(ret[4]) + 'rm2:' + str(ret[5])
     open(result_file_name, 'w').writelines(result_str)
