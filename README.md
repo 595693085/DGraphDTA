@@ -24,7 +24,7 @@ ccmpred (https://github.com/soedinglab/CCMpred) <br>
 ## train 
 Run the training code. <br>
 **python training_5folds.py 0 0 0** <br>
-where the two parameters are dataset selection, gpu selection, fold.
+where the parameters are dataset selection, gpu selection, fold (0,1,2,3,4).
 
 ## test
 This is to do prediction with the models we trainde. And this step is to reproduce the experiments. <br>
