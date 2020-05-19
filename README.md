@@ -22,7 +22,7 @@ ccmpred (https://github.com/soedinglab/CCMpred) <br>
 
 
 ## train 
-Run the training code. <br>
+5 folds cross validation. <br>
 **python training_5folds.py 0 0 0** <br>
 where the parameters are dataset selection, gpu selection, fold (0,1,2,3,4).
 
