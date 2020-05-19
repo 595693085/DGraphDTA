@@ -21,7 +21,7 @@ ccmpred (https://github.com/soedinglab/CCMpred) <br>
 (2) copy two folders called "aln" and "pconsc4" from davis to the /data/davis of your repo, so do the KIBA. <br>
 
 
-## train 
+## train (cross validation)
 5 folds cross validation. <br>
 **python training_5folds.py 0 0 0** <br>
 where the parameters are dataset selection, gpu selection, fold (0,1,2,3,4).
