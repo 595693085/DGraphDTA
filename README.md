@@ -23,11 +23,14 @@ ccmpred (https://github.com/soedinglab/CCMpred) <br>
 
 ## train 
 Run the training code. <br>
-**python training_with_validation.py 0 0** <br>
-where the two parameters are dataset selection, gpu selection.
+**python training_5folds.py 0 0 0** <br>
+where the two parameters are dataset selection, gpu selection, fold.
 
 ## test
-This step is to reproduce the experiments. <br>
+This is to prediction with the models we trainde. And this step is to reproduce the experiments. <br>
 **python test.py 0 0** <br>
-and the parameters are same to the training.
+and the parameters are dataset selection, gpu selection.
+
+Beacuse our memory limitation, only 8 combinations were fitted for the best result. It is worth mentioning that if more model combinations were explored, there may be better results.
+
 
