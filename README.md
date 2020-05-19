@@ -23,7 +23,7 @@ ccmpred (https://github.com/soedinglab/CCMpred) <br>
 
 ## train 
 Run the training code. <br>
-**python training.py 0 0** <br>
+**python training_with_validation.py 0 0** <br>
 where the two parameters are dataset selection, gpu selection.
 
 ## test
