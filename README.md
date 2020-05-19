@@ -27,7 +27,7 @@ Run the training code. <br>
 where the two parameters are dataset selection, gpu selection, fold.
 
 ## test
-This is to prediction with the models we trainde. And this step is to reproduce the experiments. <br>
+This is to do prediction with the models we trainde. And this step is to reproduce the experiments. <br>
 **python test.py 0 0** <br>
 and the parameters are dataset selection, gpu selection.
 
