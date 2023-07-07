@@ -99,7 +99,7 @@ if __name__ == '__main__':
     results_dir = 'results'
 
     device = torch.device(cuda_name if torch.cuda.is_available() else 'cpu')
-    model_file_name = 'models/model_' + model_st + '_' + dataset + '.model'
+    model_file_name = f'models/model_GNN_{dataset}_t2.model' # loading t2 model
     result_file_name = 'results/result_' + model_st + '_' + dataset + '.txt'
 
     model = GNNNet()
