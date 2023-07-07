@@ -5,6 +5,7 @@ import numpy as np
 from random import shuffle
 import matplotlib.pyplot as plt
 from torch_geometric.data import Batch
+from lifelines.utils import concordance_index
 
 from emetrics import get_aupr, get_cindex, get_rm2, get_ci, get_mse, get_rmse, get_pearson, get_spearman
 from utils import *
@@ -38,6 +39,7 @@ def calculate_metrics(Y, P, dataset='davis'):
     # aupr = get_aupr(Y, P)
     cindex = get_cindex(Y, P)  # DeepDTA
     cindex2 = get_ci(Y, P)  # GraphDTA
+    ci3 = concordance_index(Y, P)  # lifelines
     rm2 = get_rm2(Y, P)  # DeepDTA
     mse = get_mse(Y, P)
     pearson = get_pearson(Y, P)
@@ -48,6 +50,7 @@ def calculate_metrics(Y, P, dataset='davis'):
     # print('aupr:', aupr)
     print('cindex:', cindex)
     print('cindex2', cindex2)
+    print('lifelines.CI', ci3)
     print('rm2:', rm2)
     print('mse:', mse)
     print('pearson', pearson)
@@ -104,7 +107,22 @@ if __name__ == '__main__':
 
     model = GNNNet()
     model.to(device)
-    model.load_state_dict(torch.load(model_file_name, map_location=cuda_name))
+    cp = torch.load(model_file_name, map_location=cuda_name) # loading checkpoint
+    if not model_file_name.endswith('_t2.model'):
+        # change state_dict keys before loading to ensure compatibility with torch 2.0 and prevent the following error:
+        # RuntimeError: Error(s) in loading state_dict for GNNNet:
+        #   Missing key(s) in state_dict:    "mol_conv1.lin.weight", "mol_conv2.lin.weight", "mol_conv3.lin.weight", 
+        #                                    "pro_conv1.lin.weight", "pro_conv2.lin.weight", "pro_conv3.lin.weight". 
+        #   Unexpected key(s) in state_dict: "mol_conv1.weight",     "mol_conv2.weight",     "mol_conv3.weight",     
+        #                                    "pro_conv1.weight",     "pro_conv2.weight",     "pro_conv3.weight". 
+        # renaming keys to be compatible with torch 2.0
+        broken_keys = ['mol_conv1.weight', 'mol_conv2.weight', 'mol_conv3.weight', 'pro_conv1.weight', 'pro_conv2.weight', 'pro_conv3.weight']
+        for key in broken_keys:
+            new_key = key.replace('.weight', '.lin.weight')
+            # transpose weights to be compatible with torch 2.0
+            cp[new_key] = cp.pop(key).transpose(0, 1)    
+        
+    model.load_state_dict(cp)
     test_data = create_dataset_for_test(dataset)
     test_loader = torch.utils.data.DataLoader(test_data, batch_size=TEST_BATCH_SIZE, shuffle=False,
                                               collate_fn=collate)

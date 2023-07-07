@@ -1,0 +1,8 @@
+numpy
+pandas
+rdkit
+matplotlib
+
+torch
+torch_geometric
+torchsummary #(optional)
