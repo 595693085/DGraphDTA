@@ -182,7 +182,7 @@ def seq_feature(pro_seq):
 
 def target_feature(aln_file, pro_seq):#PSSM_calculation:
     # setting to zeros makes no difference due to bug in PSSM_calculation
-    pssm = np.zeros((len(pro_res_table), len(target_seq))) #PSSM_calculation(os.path.join(aln_dir, target_key + '.aln'), target_seq)
+    pssm = np.zeros((len(pro_res_table), len(pro_seq))) #PSSM_calculation(os.path.join(aln_dir, target_key + '.aln'), pro_seq)
     other_feature = seq_feature(pro_seq)
     # print('target_feature')
     # print(pssm.shape)
