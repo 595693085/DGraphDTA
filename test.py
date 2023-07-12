@@ -61,7 +61,7 @@ def calculate_metrics(Y, P, dataset='davis'):
     result_str += 'rmse:' + str(rmse) + ' ' + ' mse:' + str(mse) + ' ' + ' pearson:' + str(
         pearson) + ' ' + 'spearman:' + str(spearman) + ' ' + 'ci:' + str(cindex) + ' ' + 'rm2:' + str(rm2)
     print(result_str)
-    open(result_file_name, 'w').writelines(result_str)
+    open(result_file_name, 'a').writelines(result_str)
 
 
 def plot_density(Y, P, fold=0, dataset='davis'):
@@ -102,13 +102,13 @@ if __name__ == '__main__':
     results_dir = 'results'
 
     device = torch.device(cuda_name if torch.cuda.is_available() else 'cpu')
-    model_file_name = f'models/model_GNN_{dataset}_t2.model' # loading t2 model
+    model_file_name = f'models/model_GNN_{dataset}_t2_nomsa_50E.model' # loading t2 model
     result_file_name = 'results/result_' + model_st + '_' + dataset + '.txt'
 
     model = GNNNet()
     model.to(device)
     cp = torch.load(model_file_name, map_location=cuda_name) # loading checkpoint
-    if not model_file_name.endswith('_t2.model'):
+    if 't2' not in model_file_name:
         # change state_dict keys before loading to ensure compatibility with torch 2.0 and prevent the following error:
         # RuntimeError: Error(s) in loading state_dict for GNNNet:
         #   Missing key(s) in state_dict:    "mol_conv1.lin.weight", "mol_conv2.lin.weight", "mol_conv3.lin.weight", 
