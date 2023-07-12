@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import os
+import os, math
 import random
 import json, pickle
 from collections import OrderedDict
@@ -149,6 +149,7 @@ def PSSM_calculation(aln_file, pro_seq):
         lines = f.readlines()
         line_count = len(lines)
         for line in lines:
+            line = line.strip()
             if len(line) != len(pro_seq):
                 print('error', len(line), len(pro_seq))
                 continue
@@ -183,7 +184,7 @@ def seq_feature(pro_seq):
 
 def target_feature(aln_file, pro_seq):#PSSM_calculation:
     # setting to zeros makes no difference due to bug in PSSM_calculation
-    pssm = np.zeros((len(pro_res_table), len(pro_seq))) #PSSM_calculation(os.path.join(aln_dir, target_key + '.aln'), pro_seq)
+    pssm = PSSM_calculation(aln_file, pro_seq)
     other_feature = seq_feature(pro_seq)
     # print('target_feature')
     # print(pssm.shape)
